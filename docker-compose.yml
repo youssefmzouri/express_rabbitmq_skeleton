@@ -1,12 +1,10 @@
 version: '3'
 services:
-  mongo:
-    container_name: mongo
-    image: mongo
-    logging:
-      driver: none
+  rabbitmq:
+    image: rabbitmq:3.9.29-management
     ports:
-      - 27017:27017
+      - 5672:5672
+      - 15672:15672
   node-express:
     build:
       context: .
@@ -15,4 +13,4 @@ services:
     ports:
       - 3000:3000
     depends_on:
-      - mongo
+      - rabbitmq

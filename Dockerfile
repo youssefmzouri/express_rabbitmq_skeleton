@@ -9,10 +9,6 @@ RUN npm ci
 
 COPY . .
 
-# COPY ./data ./dist/data
-
-RUN npm run tsc
-
 RUN chmod +x ./scripts/start.sh
 
 EXPOSE 3000
