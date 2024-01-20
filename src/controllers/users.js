@@ -1,5 +1,9 @@
+import { RabbitMqProvider } from '../rabbitmq.js'
+const rabbitMqClient = new RabbitMqProvider()
+
 const UserEventController = {
   created: (msg) => {
+    rabbitMqClient.publish('main', msg)
   },
   updated: () => {
     const msg = 'user updated'
